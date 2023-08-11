@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Example-SMART-App</title>
+</head>
+<body>
+    <div id="bearer-token"></div>
+    <script>
+        fetch('/get-bearer-token')  // Request bearer token from your Go backend
+            .then(response => response.text())
+            .then(token => {
+                document.getElementById('bearer-token').textContent = token;  // Display the token
+            })
+            .catch(error => {
+                console.error('Failed to get bearer token:', error);
+            });
+    </script>
+</body>
+</html>
